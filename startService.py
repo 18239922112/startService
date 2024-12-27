@@ -19,17 +19,17 @@ stop_process = ['MobaXterm.exe','chrome.exe','Feishu.exe','WeChat.exe']
 def startService(root):
     for i in start_process:
         if 'chrome.exe' in i:
-            subprocess.Popen(i)
+            subprocess.Popen(i, creationflags=subprocess.CREATE_NO_WINDOW)
             time.sleep(3)
             pyautogui.click(1297,885)
             continue
         elif 'WeChat.exe' in i:
-            subprocess.Popen(i)
+            subprocess.Popen(i, creationflags=subprocess.CREATE_NO_WINDOW)
             time.sleep(3)
             pyautogui.click(1288, 918)
             continue
         else:
-            subprocess.Popen(i)
+            subprocess.Popen(i, creationflags=subprocess.CREATE_NO_WINDOW)
     # subprocess.Popen(r'"D:\navicat\2\Navicat Premium 17\navicat.exe"')
     root.destroy()  # 关闭主窗口
 def startMethod(root):
