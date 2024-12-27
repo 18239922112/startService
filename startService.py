@@ -19,17 +19,17 @@ stop_process = ['MobaXterm.exe','chrome.exe','Feishu.exe','WeChat.exe']
 def startService(root):
     for i in start_process:
         if 'chrome.exe' in i:
-            subprocess.Popen(i, creationflags=subprocess.CREATE_NO_WINDOW)
+            subprocess.Popen(i)
             time.sleep(3)
             pyautogui.click(1297,885)
             continue
         elif 'WeChat.exe' in i:
-            subprocess.Popen(i, creationflags=subprocess.CREATE_NO_WINDOW)
+            subprocess.Popen(i)
             time.sleep(3)
             pyautogui.click(1288, 918)
             continue
         else:
-            subprocess.Popen(i, creationflags=subprocess.CREATE_NO_WINDOW)
+            subprocess.Popen(i)
     # subprocess.Popen(r'"D:\navicat\2\Navicat Premium 17\navicat.exe"')
     root.destroy()  # 关闭主窗口
 def startMethod(root):
@@ -43,7 +43,7 @@ def closeMethod(root):
 def closeApp(app_name, root):
     try:
         # 使用 taskkill 命令关闭应用程序
-        subprocess.run(['taskkill', '/IM', app_name, '/F'], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        subprocess.run(['taskkill', '/IM', app_name, '/F'], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, creationflags=subprocess.CREATE_NO_WINDOW)
     except:
         pass
     finally:
